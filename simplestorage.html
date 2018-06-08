@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
-  <title>Simple Storage Dapp 예제 </title>
+  <title>Simple Storage Dapp sample </title>
   <style>
     body {margin-left:50px;}
     #storedData {font-size:300%; margin-right:10px;}
@@ -12,25 +12,25 @@
   </style>
 </head>
 <body>
-<h3>Simple Storage dApp 예제</h3>
+<h3>Simple Storage dApp sample </h3>
 <ul>
-  <li>컨트랙트 주소: <span id="contractAddr"></span></li>
-  <li>내 어카운트 주소: <span id="accountAddr"></span></li>
-  <li>컨트랙트에 저장된 값: <span id="storedData"></span>
-    <button onclick="getValue()">새로고침</button> (현재블록: <span id="lastBlock"></span>)</li>
-  <li><input id="newValue" type="text"><button onclick="setValue()">새 값으로 저장하기</button>
+  <li>contract address : <span id="contractAddr"></span></li>
+  <li>my account address : <span id="accountAddr"></span></li>
+  <li> value in contract: <span id="storedData"></span>
+    <button onclick="getValue()">refresh</button> ( current block: <span id="lastBlock"></span>)</li>
+  <li><input id="newValue" type="text"><button onclick="setValue()"> save by new value</button>
       <div id="result"></div></li>
-  <li>새 값을 저장한 후 팬딩 트랜잭션이 블록에 포함되면 자동으로 페이지가 업데이트될 것입니다.</li>
+  <li> after new save, pending transcation will embed, and the page will auto update </li>
 </ul>
 
-컨트랙트 소스
+contract source 
 <script src="https://gist.github.com/atomrigs/7c633570496b79623bed5d1286f93f3a.js"></script>
 
-HTML 소스<br>
-<a href="https://github.com/atomrigs/atomrigs.github.io/blob/master/simplestorage.html">https://github.com/atomrigs/atomrigs.github.io/blob/master/simplestorage.html</a>
+HTML source <br>
+<a href="https://github.com/jod033116/jod033116.github.io/blob/master/simplestorage.html">https://github.com/jod033116/jod033116.github.io/blob/master/simplestorage.html</a>
 <br><br>
 <p>
-<a href="http://www.chaintalk.io/archive/lecture?sca=%EB%82%98%EB%8F%84+dApp+%EA%B0%9C%EB%B0%9C"><i>나도 dApp 개발해 보자 © 2017</i></a>
+<a href="http://www.chaintalk.io/archive/lecture?sca=%EB%82%98%EB%8F%84+dApp+%EA%B0%9C%EB%B0%9C"><i> 2017</i></a>
 </p>
 
 </body>
@@ -86,7 +86,7 @@ function setValue() {
     getValue();
     web3.eth.getTransaction(txid, function(e,r){
       if (r != null && r.blockNumber > 0) {
-        document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
+        document.getElementById('pending').innerHTML = '(recorded block: ' + r.blockNumber + ')';
         document.getElementById('pending').style.cssText ='color:green;';
         document.getElementById('storedData').style.cssText ='color:green; font-size:300%;';
         filter.stopWatching();
